@@ -103,23 +103,30 @@ let brElement = document.createElement("hr");
 divButtonElement.append(brElement);
 
 function clickButton() {
-    let z = +inputOneElement.value;
-    let a = +inputTwoElement.value;
+    let fieldOne = +inputOneElement.value;
+    let fieldTwo = +inputTwoElement.value;
     let result;
-    switch (selectElement.value) {
-        case '+':
-            result = z + a;
-            break;
-        case '-':
-            result = z - a;
-            break;
-        case '*':
-            result = z * a;
-            break;
-        case '/':
-            result = z / a;
-            break;
+    if (!selectElement.value || (!fieldTwo && fieldTwo !== 0) || (!fieldOne && fieldOne !== 0)) {
+        return resultElementNumber.innerHTML = "Не все поля заполнены, либо заполнены не числами";
     }
-
-    return resultElementNumber.innerHTML = result;
+   else if (fieldTwo === 0 && selectElement.value === "/") {
+        return resultElementNumber.innerHTML = 'На ноль делить нельзя';
+    }
+   else if (!isNaN(fieldOne) && !isNaN(fieldTwo)) {
+        switch (selectElement.value) {
+            case '+':
+                result = fieldOne + fieldTwo;
+                break;
+            case '-':
+                result = fieldOne - fieldTwo;
+                break;
+            case '*':
+                result = fieldOne * fieldTwo;
+                break;
+            case '/':
+                result = fieldOne / fieldTwo;
+                break;
+        }
+    }
+    return  resultElementNumber.innerHTML = result;
 }
