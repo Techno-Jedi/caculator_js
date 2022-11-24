@@ -43,27 +43,23 @@ divElementSelect.append(selectElement);
 
 let selectOption = document.createElement("option");
 selectOption.innerText = "";
-selectElement.append(selectOption);
+selectElement.add(selectOption);
 
 let selectOptionPlus = document.createElement("option");
-selectOptionPlus.classList.add("optionPlus");
 selectOptionPlus.innerText = "+";
-selectElement.append(selectOptionPlus);
+selectElement.add(selectOptionPlus);
 
 let selectOptionMinus = document.createElement("option");
-selectOptionMinus.classList.add("optionMinus");
 selectOptionMinus.innerText = "-";
-selectElement.append(selectOptionMinus);
+selectElement.add(selectOptionMinus);
 
 let selectOptionDivide = document.createElement("option");
-selectOptionDivide.classList.add("optionDivide");
 selectOptionDivide.innerText = "/";
-selectElement.append(selectOptionDivide);
+selectElement.add(selectOptionDivide);
 
 let selectOptionMultiply = document.createElement("option");
-selectOptionMultiply.classList.add("optionMultiply");
 selectOptionMultiply.innerText = "*";
-selectElement.append(selectOptionMultiply);
+selectElement.add(selectOptionMultiply);
 
 let divTwoElement = document.createElement("div");
 divTwoElement.classList.add("divTwoElement");
@@ -84,12 +80,6 @@ let divButtonElement = document.createElement("div");
 divButtonElement.classList.add("divButtonElement");
 divElement.append(divButtonElement);
 
-let buttonElement = document.createElement("button");
-buttonElement.classList.add("button");
-buttonElement.innerText = "Вычислить";
-buttonElement.addEventListener("click", clickButton)
-divButtonElement.append(buttonElement);
-
 let resultElement = document.createElement("div");
 resultElement.classList.add("resultElement");
 resultElement.innerText = "Ваш результат :"
@@ -101,6 +91,12 @@ resultElement.append(resultElementNumber);
 
 let brElement = document.createElement("hr");
 divButtonElement.append(brElement);
+
+let buttonElement = document.createElement("button");
+buttonElement.classList.add("button");
+buttonElement.innerText = "Вычислить";
+buttonElement.addEventListener("click", clickButton)
+divButtonElement.append(buttonElement);
 
 function clickButton() {
     let fieldOne = +inputOneElement.value;
